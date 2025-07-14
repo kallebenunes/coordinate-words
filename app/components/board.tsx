@@ -4,11 +4,12 @@ import type { BoardConfig } from "~/utils/board-config";
 
 interface BoardProps {
     boardConfig: BoardConfig;
+    id: string
 }
 
-export function Board({boardConfig}: BoardProps){
+export function Board({boardConfig, id}: BoardProps){
     
-    const board = createBoard(boardConfig);
+    const board = createBoard(boardConfig, id);
     
     return (
         <section 

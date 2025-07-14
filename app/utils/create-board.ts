@@ -2,9 +2,29 @@ import type { BoardConfig } from "./board-config";
 import lettersNumbers from "./letters-map";
 import { type WordCardProps } from "~/components/word-card";
 import { type CellCardProps } from "~/components/cell-card";
-import { v4 } from "uuid";
+import { v4, v7 } from "uuid";
+export interface CreatedBoard {
+    positions: (WordCardProps | CellCardProps)[];
+    id: string;
+    gridTemplateAreas: string;
+    gridTemplateColumns: string;
+    gridTemplateRows: string;
+}
 
-export function createBoard({columnsQty, linesQty ,...configBoard}: BoardConfig) {
+export function createBoard({columnsQty, linesQty ,...configBoard}: BoardConfig, id: string): CreatedBoard {
+
+        const localStorage = window.localStorage;
+        
+        const boardOnLocalStorage = localStorage.getItem(`board:${id}`);
+
+        if(boardOnLocalStorage){
+            const parsedBoard = JSON.parse(boardOnLocalStorage) as CreatedBoard;
+            return {
+                ...parsedBoard,
+                id,
+            };
+        }
+        
         let cardsList = [];
         let gridTemplateAreas = '';
 
@@ -56,10 +76,17 @@ export function createBoard({columnsQty, linesQty ,...configBoard}: BoardConfig)
             gridTemplateAreas += `" \n`;
         }
         
-        return {
-            positions: cardsList,
+        const mountedBoard = {
+            positions: cardsList,            
+            id,
             gridTemplateAreas, 
             gridTemplateColumns: `repeat(${columnsQty + 1}, 1fr)`,
             gridTemplateRows: `repeat(${linesQty + 1}, 1fr)`,  
         }
+
+        localStorage.setItem(`board:${id}`, JSON.stringify(mountedBoard));
+
+        return mountedBoard;
+
+        
 }
