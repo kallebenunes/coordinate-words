@@ -11,7 +11,7 @@ export interface CreatedBoard {
     gridTemplateRows: string;
 }
 
-export function createBoard({columnsQty, linesQty ,...configBoard}: BoardConfig, id: string): CreatedBoard {
+export function mountBoard({columnsQty, linesQty ,...configBoard}: BoardConfig, id: string): CreatedBoard {
 
         const localStorage = window.localStorage;
         

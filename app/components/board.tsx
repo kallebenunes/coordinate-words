@@ -1,4 +1,4 @@
-import { createBoard } from "~/utils/create-board";
+import { mountBoard } from "~/utils/create-board";
 import { CardSelector } from "./card-selector";
 import type { BoardConfig } from "~/utils/board-config";
 
@@ -9,7 +9,7 @@ interface BoardProps {
 
 export function Board({boardConfig, id}: BoardProps){
     
-    const board = createBoard(boardConfig, id);
+    const board = mountBoard(boardConfig, id);
     
     return (
         <section 
