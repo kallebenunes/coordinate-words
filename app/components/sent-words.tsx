@@ -22,7 +22,7 @@ export function SentWords({wordsList}: {wordsList: SentWord[]}) {
     }
 
     return (
-        <fetcher.Form>
+        <fetcher.Form data-test-id='sent-words'>
             <h1 className="flex justify-center mb-8 max-h-1 overflow-x-visible ">Sent words</h1>
             {wordsList.map(({id, word}) => (
                 <button className="cursor-pointer border-gray-500 border-2 rounded-lg w-full px-2.5 py-1 hover:bg-gray-500 transition-all mb-2" onClick={handleSelectWord} key={id}>

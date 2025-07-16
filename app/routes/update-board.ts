@@ -26,5 +26,7 @@ export async function clientAction(data: ClientActionFunctionArgs) {
     }];
     localStorage.setItem("wordsList", JSON.stringify(wordsList));
   }
-
+  return {
+    response: 'ok'
+  }
 }

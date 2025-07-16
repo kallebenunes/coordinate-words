@@ -22,22 +22,17 @@ describe('Board Page', () => {
   })
 
   it('submits the word form', () => {
-    // Intercept the form submission
-    cy.intercept('POST', '/board-update', { statusCode: 200 }).as('submitWord')
     
-    // Fill and submit the form
     cy.get('input[placeholder="Type a word"]').type('testing')
     cy.get('button[type="submit"]').click()
-    
-    // Wait for the request to be made
-    cy.wait('@submitWord')
+    cy.get('[data-test-id="sent-words"]').find('button').should('contain.text', 'testing')
+  
   })
 
   it('displays the sent words section', () => {
-    // Check if the sent words section is visible
+    
     cy.get('main').within(() => {
-      // Look for elements that would indicate the SentWords component
-      cy.get('div').should('exist')
+      cy.get('[data-test-id="sent-words"]').should('be.visible')
     })
   })
 })
