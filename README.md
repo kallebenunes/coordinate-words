@@ -1,7 +1,7 @@
 # Welcome to Coordinate Words!
 # This project is currently a Work In Progress
-It would be a digtial versoin of a brazilian game called "Entre Linhas", basically a guessing game where you should try to learn a coordinate based on related words. 
-It should be error handling, test written, real communication with server side, better state management and a lot of things and rules to write.
+It would be a digital versoin of a brazilian game called "Entre Linhas", basically a guessing game where you should try to guess a coordinate based on related words. 
+It should be better error handling, test written, real communication with server side, better state management and a lot of things and rules to write.
 
 It's being built using React Router V7 on framweork (Remix). 
 
