@@ -1,8 +1,9 @@
-# Welcome to React Router!
+# Welcome to Coordinate Words!
+# This project is currently a Work In Progress
+It would be a digtial versoin of a brazilian game called "Entre Linhas", basically a guessing game where you should try to learn a coordinate based on related words. 
+It should be error handling, test written, real communication with server side, better state management and a lot of things and rules to write.
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+It's being built using React Router V7 on framweork (Remix). 
 
 ## Features
 
